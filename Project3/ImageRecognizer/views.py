@@ -8,6 +8,8 @@ from io import BytesIO
 from .model.predict_image import *
 from sys import getsizeof
 from os.path import exists
+import datetime
+import pytz
 
 # Create your views here.
 
@@ -21,6 +23,11 @@ def clear_history(request):
         history = History.objects.filter(session=Session.objects.filter(pk=request.session.session_key).get()).delete()
     return redirect('index')
 
+
+def clear_expired():
+    sessions = Session.objects.filter(expire_date__lte=pytz.utc.localize(datetime.datetime.now()))
+    for session_ in sessions:
+        History.objects.filter(session=session_).delete()
 
 def get_history(session_key):
     history = History.objects.filter(session=Session.objects.filter(pk=session_key).get()).all()
@@ -43,6 +50,7 @@ def prepare_model():
             model_.save()
     else:
         if not exists('vgg16_cifar10_new.hdf5'):
+            print("File with model doesn't exist, trying to create")
             model_ = Models.objects.filter(name='base').get()
             with open('vgg16_cifar10_new.hdf5', 'wb') as model_data:
                 model_data.write(model_.model)
@@ -53,6 +61,7 @@ def index(request):
     history = None
     if not request.session.session_key:
         request.session.create()
+    clear_expired()
     prepare_model()
     try:
         if request.method == 'POST':
