@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('IR/', include('ImageRecognizer.urls')),
+    path('', include('ImageRecognizer.urls')),
     path('admin/', admin.site.urls),
 ]

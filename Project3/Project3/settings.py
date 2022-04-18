@@ -35,7 +35,10 @@ SECRET_KEY = 'django-insecure-g6t@=a)^_#it7i+8p6^9nf*gj+@a$iwb$is5amkec&v6!68il)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['goit3.herokuapp.com',
+                 '.herokuapp.com',
+                 'herokuapp.com'
+                 ]
 
 
 # Application definition
@@ -136,3 +139,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+SESSION_COOKIE_AGE = 60 * 60 * 24#
+CSRF_TRUSTED_ORIGINS = ['https://goit3.herokuapp.com']
