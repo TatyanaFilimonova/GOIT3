@@ -14,8 +14,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", 'django-insecure-g6t@=a)^_#it7i+8p6^9n
 
 from pathlib import Path
 
-"
-", 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
