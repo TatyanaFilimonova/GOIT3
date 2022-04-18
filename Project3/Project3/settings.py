@@ -24,11 +24,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g6t@=a)^_#it7i+8p6^9nf*gj+@a$iwb$is5amkec&v6!68il)'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['goit3.herokuapp.com',
                  '.herokuapp.com',
