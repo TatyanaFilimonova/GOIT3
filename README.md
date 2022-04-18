@@ -14,4 +14,7 @@ Sources of Vgg16 model you could find by link
 
 https://colab.research.google.com/drive/1fMSDJQLYeHGVCd9xEWKGYwNEtbEJH41O?usp=sharing#scrollTo=T0lhNoCpgfhb
 
+Heroku app web based image recogniser available here: https://goit3.herokuapp.com/IR/
 
+
+P.S. Just for fun: all the faces of my relatives recognized by Predict Net as cats :>) 
