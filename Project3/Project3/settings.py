@@ -1,6 +1,5 @@
 """
 Django settings for Project3 project.
-
 """
 
 import os
@@ -14,7 +13,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY", 'django-insecure-g6t@=a)^_#it7i+8p6^9n
 
 from pathlib import Path
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
@@ -24,11 +22,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['goit3.herokuapp.com',
                  '.herokuapp.com',
-                 'herokuapp.com'
+                 'herokuapp.com',
+                 'localhost',
+                 '127.0.0.1'
                  ]
 
 
