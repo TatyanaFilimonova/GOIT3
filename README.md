@@ -35,7 +35,7 @@ To improve the accuracy of the model, the data extension technique was used
 
 Thanks to this, it was possible to avoid retraining of the model and the accuracy of the model was achieved at the level of 92%
 
-![image](https://user-images.githubusercontent.com/81954790/163983620-8822cc0f-f3b3-44eb-9ba9-43a6a5a39723.png)
+![image](https://user-images.githubusercontent.com/81954790/163985420-43201cf1-0173-4a72-926d-7cf4576e4726.png)
 
 Loss and accuracy graphs
 
