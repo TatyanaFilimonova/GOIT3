@@ -3,6 +3,17 @@ body {
      background-color: rgba(	194, 202, 215, 100%);
 }
 
+.bgcolor {
+    background-color: rgba(	194, 202, 215, 100%);
+}
+
+
+.margin100 {
+
+top-margin: 100px;
+
+}
+
 .historyImage {
   width: 300px;
   height: auto;
