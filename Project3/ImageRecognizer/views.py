@@ -29,7 +29,7 @@ def clear_expired():
         History.objects.filter(session=session_).delete()
 
 def get_history(session_key):
-    history = History.objects.filter(session=Session.objects.filter(pk=session_key).get()).all()
+    history = History.objects.filter(session=Session.objects.filter(pk=session_key).get()).order_by('-id').all()
     for raw in history:
         image = base64.b64encode(raw.body)
         image = image.decode('utf8')
