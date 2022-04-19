@@ -14,7 +14,6 @@ import pytz
 
 
 def image_recognizer(image):
-    print('Call recognizer function')
     return predict_image(image)
 
 def clear_history(request):
@@ -47,7 +46,6 @@ def get_file_type(file_name):
 
 def index(request):
     history = None
-    print('request.session.session_key: ', request.session.session_key)
     if not request.session.session_key:
         request.session.create()
     clear_expired()
@@ -75,7 +73,6 @@ def index(request):
             else:
                 messages.add_message(request, messages.WARNING, "Didn't find file to upload")
     except Exception as e:
-        print(e)
         messages.add_message(request, messages.WARNING, str(e))
     history = get_history(request.session.session_key)
     return render(request,
