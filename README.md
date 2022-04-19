@@ -1,7 +1,5 @@
 # GOIT3
 
-Some very strange things with heroku....
-
 For now - the Auth tokens for GitHub are blocked in security reasons. That's why no continuous deployment is available through GitHub.
 
 So all the sources passed to Heroku using the HEROKU CLI
@@ -14,10 +12,6 @@ Sources of Vgg16 model you could find by link
 https://drive.google.com/file/d/1LJnhd4X4GIjoaBv40DtgxGryT33xQykT/view?usp=sharing
 
 Heroku app -  web-based image recogniser available here: https://goit3.herokuapp.com/IR/
-
-
-P.S. Just for fun: all the faces of my relatives recognized by Predict Net as cats :>) 
-
 
 
 In this project, it was proposed to train a neural network to recognize pictures of 10 different classes
