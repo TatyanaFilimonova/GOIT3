@@ -30,9 +30,9 @@ def clear_expired():
 
 def get_history(session_key):
     history = None
-    current_session = Session.objects.filter(pk=session_key).get()
+    current_session = Session.objects.filter(pk=session_key)
     if current_session:
-        history = History.objects.filter(session=current_session).order_by('-id').all()
+        history = History.objects.filter(session=current_session.get()).order_by('-id').all()
         for raw in history:
             image = base64.b64encode(raw.body)
             image = image.decode('utf8')
@@ -45,30 +45,20 @@ def get_file_type(file_name):
     return file_type
 
 
-def prepare_model():
-    if not Models.objects.filter(name='base'):
-        with open('vgg16_cifar10_new.hdf5', 'rb') as model_data:
-            model_ = Models(name='base', model=model_data.read())
-            model_.save()
-    else:
-        if not exists('vgg16_cifar10_new.hdf5'):
-            print("File with model doesn't exist, trying to create")
-            model_ = Models.objects.filter(name='base').get()
-            with open('vgg16_cifar10_new.hdf5', 'wb') as model_data:
-                model_data.write(model_.model)
-    return None
-
-
 def index(request):
     history = None
+    print('request.session.session_key: ', request.session.session_key)
     if not request.session.session_key:
         request.session.create()
     clear_expired()
+    if not Session.objects.filter(pk=request.session.session_key):
+        request.session.delete()
+        request.session.create()
     try:
         if request.method == 'POST':
             file = dict(request.__dict__['_files'])
             if file != {}:
-                file  = file['project_files'][0]
+                file = file['project_files'][0]
                 file_type = get_file_type(file.name)
                 assert (file_type in ['png', 'jpeg', 'jpg', 'gif']), 'Incorrect file type, file should be an image'
                 assert (getsizeof(file.read()) < 15000000), 'File to big, please resize image'
