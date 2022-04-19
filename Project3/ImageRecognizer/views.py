@@ -4,7 +4,6 @@ from django.contrib.sessions.models import Session
 from django.contrib import messages
 import base64
 import re
-from io import BytesIO
 from .model.predict_image import *
 from sys import getsizeof
 from os.path import exists
@@ -62,7 +61,6 @@ def index(request):
     if not request.session.session_key:
         request.session.create()
     clear_expired()
-    prepare_model()
     try:
         if request.method == 'POST':
             file = dict(request.__dict__['_files'])
