@@ -29,13 +29,14 @@ A pre-trained convolutional neural network was used to train the model.
 
 As a convolutional basis, the VGG16 network trained on ImageNet data was used to extract useful features from the cifar10 dataset
 
-![image](https://user-images.githubusercontent.com/81954790/163982480-c55e49ee-346f-4f3c-bd88-0564f8c7f9c1.png)
+![image](https://user-images.githubusercontent.com/81954790/163985420-43201cf1-0173-4a72-926d-7cf4576e4726.png)
 
 To improve the accuracy of the model, the data extension technique was used
 
 Thanks to this, it was possible to avoid retraining of the model and the accuracy of the model was achieved at the level of 92%
 
-![image](https://user-images.githubusercontent.com/81954790/163985420-43201cf1-0173-4a72-926d-7cf4576e4726.png)
+![image](https://user-images.githubusercontent.com/81954790/163985694-25eddf9e-e858-437b-b95c-c92a034b07a8.png)
+
 
 Loss and accuracy graphs
 
