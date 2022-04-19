@@ -10,8 +10,8 @@
 <link href="{% static 'index.css' %}" rel="stylesheet" crossorigin="anonymous">
 
 <div class="container__color">
-    <div class="col-12 col-xl-8 height_100 rounded top" >
-
+    <div class="col-12 col-xl-8 height_100 rounded fixed-top bgcolor" >
+        <br>
         <form name = "getFile" id ="getFile" method="post" enctype="multipart/form-data">
             {% csrf_token %}
                 <h4 >Please upload image to recognize objects</h4>
@@ -22,6 +22,11 @@
             </div>
         </form>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% if messages %}
         <br>
         <div class="col-12 col-xl-8 height_100 rounded" >
