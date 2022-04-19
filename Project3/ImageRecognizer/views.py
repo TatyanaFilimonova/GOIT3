@@ -10,11 +10,11 @@ from os.path import exists
 import datetime
 import pytz
 
-# Create your views here.
-
 
 def image_recognizer(image):
+    print('Call recognizer function')
     return predict_image(image)
+
 
 def clear_history(request):
     if request.session.session_key:
@@ -26,6 +26,7 @@ def clear_expired():
     sessions = Session.objects.filter(expire_date__lte=pytz.utc.localize(datetime.datetime.now()))
     for session_ in sessions:
         History.objects.filter(session=session_).delete()
+
 
 def get_history(session_key):
     history = None
@@ -44,14 +45,18 @@ def get_file_type(file_name):
     return file_type
 
 
-def index(request):
-    history = None
+def session_manager(request):
     if not request.session.session_key:
         request.session.create()
-    clear_expired()
     if not Session.objects.filter(pk=request.session.session_key):
         request.session.delete()
         request.session.create()
+    return None
+
+
+def index(request):
+    session_manager(request)
+    clear_expired()
     try:
         if request.method == 'POST':
             file = dict(request.__dict__['_files'])
