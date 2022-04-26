@@ -13,9 +13,11 @@ https://drive.google.com/file/d/1LJnhd4X4GIjoaBv40DtgxGryT33xQykT/view?usp=shari
 
 Heroku app -  web-based image recogniser available here: https://goit3.herokuapp.com/IR/
 
-Docker Image stored at - https://hub.docker.com/repository/docker/mathteacher/project3_neural#
+Docker Image stored at - https://hub.docker.com/r/mathteacher/project3_neural
 
-<b>Docker-compose.yml could be send by request due to containing sensitive info.</b> 
+To get it from docker hub run  <strong> docker pull mathteacher/project3_neural:demo </strong>
+
+To run it use command <strong> docker compose up neural </strong> with <i>Docker-compose.yml</i> (due to containing sensitive info could be send by request omly). 
 
 
 In this project, it was proposed to train a neural network to recognize pictures of 10 different classes
