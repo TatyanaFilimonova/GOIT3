@@ -12,7 +12,6 @@ import pytz
 
 
 def image_recognizer(image):
-    print('Call recognizer function')
     return predict_image(image)
 
 

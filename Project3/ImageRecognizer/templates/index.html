@@ -9,8 +9,7 @@
 {% load static %}
 <link href="{% static 'index.css' %}" rel="stylesheet" crossorigin="anonymous">
 
-<div class="container__color">
-    <div class="col-12 col-xl-8 height_100 rounded fixed-top bgcolor" >
+<div class="navbar fixed-top bgcolor center" >
         <br>
         <form name = "getFile" id ="getFile" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -21,57 +20,42 @@
                 <button onclick="clearHistory(event)" class = "btn btn-primary">Clear history</button>
             </div>
         </form>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+</div>
+<main role="main" class="container top">
     {% if messages %}
         <br>
         <div class="col-12 col-xl-8 height_100 rounded" >
             <div class="messages">
                 <ul>
-
                     {% for message in messages %}
                         <li class = "message_element">
                             {{ message }}
                         </li>
                     {% endfor %}
-
                 </ul>
             </div>
         </div>
     {% endif %}
 
     {% if history %}
-       <div class="col-12 col-xl-8 height_100 rounded top bottom" >
+       <div>
             <h4>Recognized objects:</h4>
        </div>
-
-       {% for row in history %}
-            <div class="col-12 col-xl-8 height_100 rounded top" >
-               <div id = "requestHistory" class="requestHistory">
-                      <div>
-                          <strong>Uploaded image</strong>
-                      </div>
-                      <div>
-                          <strong>Results</strong>
-                      </div>
-                      <div>
-                          <img src="data:image/{{row.type}};base64,{{row.body}}" alt={{row.name}} class="historyImage"/>
-                      </div>
-                      <div>
-                        {{row.response}}
-                       </div>
-               </div>
-            </div>
+       <div class="requestHistory">
+        {% for row in history %}
+           <div class="card center__card" style="width: 18rem;">
+                <img src="data:image/{{row.type}};base64,{{row.body}}" alt={{row.name}}">
+                <div class="card-body">
+                    <p class="card-text">I could see the {{row.response}} at the image</p>
+                </div>
+           </div>
         {% endfor %}
+       </div>
     {% endif %}
-    </div>
 
 
-    </div>
+
+</main>
 
 
 
@@ -79,4 +63,3 @@
 </body>
  <script src="{% static 'main.js' %}"></script>
 </html>
-
